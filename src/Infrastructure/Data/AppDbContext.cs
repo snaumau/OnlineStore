@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using Infrastructure.Data.Config;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
@@ -21,6 +22,14 @@ namespace Infrastructure.Data
                         @"Server=WINBPO\DEV;Database=OnlineStore;Trusted_Connection=True;MultipleActiveResultSets=true",
                         options => options.EnableRetryOnFailure());
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // seed for category
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         }
     }
 }
