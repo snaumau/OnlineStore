@@ -1,0 +1,8 @@
+﻿@model HomeViewModel
+
+<div class="row">
+    @foreach (var category in Model.AllCategories)
+    {
+        <partial name="_CategoryCard" model="category" />
+    }
+</div>
