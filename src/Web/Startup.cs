@@ -44,10 +44,10 @@ namespace Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
-            app.UseRouting();
-
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
