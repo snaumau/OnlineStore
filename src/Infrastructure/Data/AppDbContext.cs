@@ -31,6 +31,9 @@ namespace Infrastructure.Data
 
             // seed for category
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+
+            // seed for product
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
     }
 }
