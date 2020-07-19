@@ -11,12 +11,12 @@ namespace Infrastructure.Data.Migrations
                 columns: new[] { "CategoryId", "Name", "ThumbnailUrl" },
                 values: new object[,]
                 {
-                    { 1, "Mobiles", "images/categories/mobiles.jpg" },
-                    { 2, "Notebooks", "images/categories/notebooks.jpg" },
-                    { 3, "Tablets", "images/categories/tablets.jpg" },
-                    { 4, "Computers", "images/categories/computers.jpg" },
-                    { 5, "Whatches", "images/categories/whatches.jpg" },
-                    { 6, "Accessories", "images/categories/accessories.jpg" }
+                    { 1, "Mobiles", "/images/categories/mobiles.jpg" },
+                    { 2, "Notebooks", "/images/categories/notebooks.jpg" },
+                    { 3, "Tablets", "/images/categories/tablets.jpg" },
+                    { 4, "Computers", "/images/categories/computers.jpg" },
+                    { 5, "Whatches", "/images/categories/whatches.jpg" },
+                    { 6, "Accessories", "/images/categories/accessories.jpg" }
                 });
         }
 
