@@ -4,7 +4,7 @@
         <img src="@Model.ThumbnailUrl" class="rounded mx-auto d-block" />
         <div class="caption">
             <h3 class="text-center">
-                <a asp-controller="Home" asp-action="Index">@Model.Name</a>
+                <a asp-controller="Product" asp-action="List" asp-route-category="@Model.Name">@Model.Name</a>
             </h3>
         </div>
     </div>
