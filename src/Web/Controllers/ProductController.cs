@@ -10,20 +10,17 @@ namespace Web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;
-        private readonly ICategoryRepository _categoryRepository;
 
-        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
-            _categoryRepository = categoryRepository;
         }
 
-        public ViewResult List(string category)
+        public ViewResult List(string currentCategory)
         {
             IEnumerable<Product> products;
-            string currentCategory;
 
-            if (string.IsNullOrEmpty(category))
+            if (string.IsNullOrEmpty(currentCategory))
             {
                 products = _productRepository.Products
                     .OrderBy(p => p.ProductId);
@@ -32,22 +29,19 @@ namespace Web.Controllers
             else
             {
                 products = _productRepository.Products
-                    .Where(p => p.Category.Name == category)
+                    .Where(p => p.Category.Name == currentCategory)
                     .OrderBy(p => p.ProductId);
-
-                currentCategory = _categoryRepository.GetAll
-                    .FirstOrDefault(c => c.Name == category)?.Name;
             }
             return View(new ProductListViewModel
             {
                 Products = products,
-                CurrentCategory = currentCategory
+                CurrentCategory = currentCategory,
             });
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int productId)
         {
-            var product = _productRepository.GetProductById(id);
+            var product = _productRepository.GetProductById(productId);
             if (product == null)
                 return NotFound();
 
