@@ -23,6 +23,7 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                                @await Component.InvokeAsync("ShoppingCartSummary")
                             </li>
                         </ul>
                     </div>
