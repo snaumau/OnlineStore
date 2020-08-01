@@ -10,5 +10,12 @@
             <a href="#">@Model.Name</a>
         </h3>
         <p>@Model.Description</p>
+        <div>
+            <p role="button">
+                <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@Model.ProductId">
+                    Add to cart
+                </a>
+            </p>
+        </div>
     </div>
 </div>

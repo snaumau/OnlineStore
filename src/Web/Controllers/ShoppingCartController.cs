@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using ApplicationCore.Interfaces;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +27,7 @@ namespace Web.Controllers
                 ShoppingCart = _shoppingCart,
                 ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal(),
             };
-            return View();
+            return View(shoppingCartViewModel);
         }
 
         public RedirectToActionResult AddToShoppingCart(int productId)
