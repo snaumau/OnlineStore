@@ -1,7 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Infrastructure.Data;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Infrastructure.Repositories
 {
@@ -14,6 +14,6 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<Category> GetAll => _context.Categories;
+        public IQueryable<Category> GetCategories => _context.Categories;
     }
 }

@@ -1,10 +1,10 @@
 ﻿using ApplicationCore.Entities;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Web.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<Category> AllCategories { get; set; }
+        public IQueryable<Category> AllCategories { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -18,17 +17,17 @@ namespace Web.Controllers
 
         public ViewResult List(string currentCategory)
         {
-            IEnumerable<Product> products;
+            IQueryable<Product> products;
 
             if (string.IsNullOrEmpty(currentCategory))
             {
-                products = _productRepository.Products
+                products = _productRepository.GetProducts
                     .OrderBy(p => p.ProductId);
                 currentCategory = "All products";
             }
             else
             {
-                products = _productRepository.Products
+                products = _productRepository.GetProducts
                     .Where(p => p.Category.Name == currentCategory)
                     .OrderBy(p => p.ProductId);
             }

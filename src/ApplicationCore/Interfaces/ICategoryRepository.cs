@@ -1,10 +1,10 @@
 ﻿using ApplicationCore.Entities;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ApplicationCore.Interfaces
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> GetAll { get; }
+        IQueryable<Category> GetCategories { get; }
     }
 }

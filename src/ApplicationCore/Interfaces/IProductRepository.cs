@@ -1,11 +1,11 @@
 ﻿using ApplicationCore.Entities;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ApplicationCore.Interfaces
 {
     public interface IProductRepository
     {
-        public IEnumerable<Product> Products { get; }
+        IQueryable<Product> GetProducts { get; }
 
         Product GetProductById(int productId);
     }

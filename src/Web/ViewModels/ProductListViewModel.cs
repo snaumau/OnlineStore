@@ -1,11 +1,11 @@
 ﻿using ApplicationCore.Entities;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Web.ViewModels
 {
     public class ProductListViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
+        public IQueryable<Product> Products { get; set; }
         public string CurrentCategory { get; set; }
     }
 }

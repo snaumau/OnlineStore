@@ -2,7 +2,6 @@
 using ApplicationCore.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Infrastructure.Repositories
@@ -16,7 +15,7 @@ namespace Infrastructure.Repositories
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Product> Products =>
+        public IQueryable<Product> GetProducts =>
             _appDbContext.Products.Include(c => c.Category);
 
         public Product GetProductById(int productId)

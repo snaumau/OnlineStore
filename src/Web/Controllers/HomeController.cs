@@ -17,7 +17,7 @@ namespace Web.Controllers
         {
             var homeViewModel = new HomeViewModel
             {
-                AllCategories = _categoryRepository.GetAll
+                AllCategories = _categoryRepository.GetCategories
             };
             return View(homeViewModel);
         }
