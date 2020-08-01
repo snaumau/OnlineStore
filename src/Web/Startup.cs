@@ -1,6 +1,7 @@
 using ApplicationCore.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,8 +29,10 @@ namespace Web
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient(sp => ShoppingCartService.GetCart(sp));
 
             services.AddHttpContextAccessor();
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -50,6 +53,8 @@ namespace Web
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
