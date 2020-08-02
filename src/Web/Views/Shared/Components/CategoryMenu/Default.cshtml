@@ -2,15 +2,15 @@
 
 <li>
     <a asp-controller="Product" asp-action="Index"></a>
-    <ul>
+    <ul class="nav navbar-nav">
         @foreach (var category in Model)
         {
             <li>
-                <a asp-controller="Product" asp-action="List" asp-route-currentCategory="@category.Name">@category.Name</a>
+                <a class="nav-link" asp-controller="Product" asp-action="List" asp-route-currentCategory="@category.Name">@category.Name</a>
             </li>
         }
         <li>
-            <a asp-controller="Product" asp-action="List" asp-route-Category="">All categories</a>
+            <a class="nav-link" asp-controller="Product" asp-action="List" asp-route-Category="">All categories</a>
         </li>
     </ul>
 </li>
