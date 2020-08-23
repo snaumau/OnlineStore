@@ -29,6 +29,7 @@ namespace Web
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient(sp => ShoppingCartService.GetCart(sp));
 
             services.AddHttpContextAccessor();
