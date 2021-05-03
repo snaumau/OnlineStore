@@ -83,11 +83,10 @@ namespace Infrastructure.Services
 
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
-            return ShoppingCartItems ?? (ShoppingCartItems =
-                _appDbContext.ShoppingCartItems
+            return ShoppingCartItems ??= _appDbContext.ShoppingCartItems
                 .Where(c => c.ShoppingCartId == ShoppingCartId)
                 .Include(s => s.Product)
-                .ToList());
+                .ToList();
         }
 
         public void ClearCart()
