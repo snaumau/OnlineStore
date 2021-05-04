@@ -27,10 +27,10 @@ namespace Web
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient(sp => ShoppingCartService.GetCart(sp));
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped(sp => ShoppingCartService.GetCart(sp));
 
             services.AddHttpContextAccessor();
             services.AddSession();
