@@ -6,10 +6,7 @@ namespace Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
-        {
-            
-        }
+        public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -23,7 +20,7 @@ namespace Infrastructure.Data
             {
                 optionsBuilder
                     .UseSqlServer(
-                        @"Server=WINBPO\DEV;Database=OnlineStore;Trusted_Connection=True;MultipleActiveResultSets=true",
+                        @"Server=localhost\\SQLEXPRESS;Database=OnlineStore;Trusted_Connection=True;MultipleActiveResultSets=true",
                         options => options.EnableRetryOnFailure());
             }
         }

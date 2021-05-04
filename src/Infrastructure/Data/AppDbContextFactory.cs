@@ -10,8 +10,9 @@ namespace Infrastructure.Data
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder
                     .UseSqlServer(
-                        @"Server=WINBPO\DEV;Database=OnlineStore;Trusted_Connection=True;MultipleActiveResultSets=true",
+                        @"Server=localhost\\SQLEXPRESS;Database=OnlineStore;Trusted_Connection=True;MultipleActiveResultSets=true",
                         options => options.EnableRetryOnFailure());
+
             return new AppDbContext(optionsBuilder.Options);
         }
     }
