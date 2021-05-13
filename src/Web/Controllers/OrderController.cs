@@ -43,7 +43,7 @@ namespace Web.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks for your order!";
+            ViewBag.Message = "Thanks for your order!";
             return View();
         }
     }
