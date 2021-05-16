@@ -50,7 +50,7 @@ namespace ApplicationCore.Entities
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The email address is not entered in a correct format")]
         [EmailAddress]
         public string Email { get; set; }
 
